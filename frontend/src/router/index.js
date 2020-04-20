@@ -22,6 +22,7 @@ export default new Router({
       path: '/articles/:id',
       name: 'single-article-page',
       component: SingleArticlePage,
+      props: true,
     },
   ],
 });
