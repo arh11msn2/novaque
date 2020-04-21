@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Artilces</h1>
-        <div v-for="article in articles" :key="article">
+        <div v-for="article in articles" :key="article.id">
             <card :article="article" />
         </div>
         <router-link :to="{ name: 'home-page' }">На главную</router-link>
@@ -21,7 +21,7 @@ export default {
   data: () => ({
     articles: [],
   }),
-  async created() {
+  async mounted() {
     await this.fetchData();
   },
   methods: {

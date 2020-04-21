@@ -3,7 +3,10 @@
         <p>Title: {{ article.title }}</p>
         <p>Author: {{ article.author.firstName}} {{ article.author.lastName }}</p>
         <p>Likes: {{ article.likesCount }}</p>
-        <router-link :to="{ name: 'single-article-page', params: { id: article.id }}">
+        <router-link
+            :to="{ name: 'single-article-page', params: { id: article.id }}"
+            target="_blank"
+        >
             Читать
         </router-link>
         <br/>

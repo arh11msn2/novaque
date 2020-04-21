@@ -5,13 +5,13 @@
         <p> {{ article.author.firstName + ' ' + article.author.lastName }}
         <p> {{ article.content }} </p>
         <p>Likes: {{ article.likesCount }} </p>
-           <div v-for="comment in article.comments" :key='comment'>
+           <div v-for="comment in article.comments" :key='comment.id'>
               <p> {{ comment.text }} </p>
               <p> {{ comment.createdAt }} </p>
             </div>
-            <div v-for="article in article.relatedArticles" :key="article">
-            <card :article="article" />
-        </div>
+            <div v-for="article in article.relatedArticles" :key="article.id">
+              <card :article="article" />
+            </div>
     </div>
 </template>
 
@@ -40,6 +40,7 @@ export default {
   async mounted() {
     await this.fetchData();
   },
+
   methods: {
     async fetchData() {
       const response = await get(`http://127.0.0.1:11000/articles/${this.id}`);
