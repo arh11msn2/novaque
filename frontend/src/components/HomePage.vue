@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <router-link :to="{ name: 'articles-page' }">Страница статей</router-link>
+    <router-link :to="{ name: 'articles-page' }">To articles</router-link>
   </div>
 </template>
 
@@ -16,15 +16,7 @@ export default {
 h1, h2 {
   font-weight: normal;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
 a {
-  color: #42b983;
+  color: #5e4511;
 }
 </style>

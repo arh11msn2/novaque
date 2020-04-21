@@ -4,7 +4,7 @@
         <div v-for="article in articles" :key="article.id">
             <card :article="article" />
         </div>
-        <router-link :to="{ name: 'home-page' }">На главную</router-link>
+        <router-link :to="{ name: 'home-page' }">Main page</router-link>
     </div>
 </template>
 
