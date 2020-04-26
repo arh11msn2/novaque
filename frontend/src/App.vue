@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>NOVAQUE</h1>
+    <h1 class="title">NOVAQUE</h1>
     <router-view/>
     <body>
       </body>
@@ -18,6 +18,7 @@ export default {
   background-color: antiquewhite;
   }
 #app {
+  position: relative;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 30px;
   text-align: center;
@@ -26,8 +27,8 @@ export default {
 }
 </style>
 
-<style scoop>
-h1 {
+<style scoped>
+h1 .title {
   animation: mymove 5s infinite
 }
 

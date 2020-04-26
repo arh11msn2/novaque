@@ -1,4 +1,5 @@
 import { NestFactory } from '@nestjs/core';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -6,6 +7,14 @@ async function bootstrap() {
     cors: true,
     logger: console,
   });
+  const options = new DocumentBuilder()
+  .setTitle('Novaque')
+  .setDescription('Novaque API description')
+  .setVersion('1.0')
+  .addBearerAuth()
+  .build();
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('api', app, document);
   await app.listen(11000);
 }
 bootstrap();

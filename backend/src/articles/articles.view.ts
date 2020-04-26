@@ -1,6 +1,6 @@
 import {Injectable} from '@nestjs/common';
 
-import {ArticleDto} from './dto';
+import {ArticleDto} from './dto/article.dto';
 
 @Injectable()
 export class ArticlesView {
@@ -11,8 +11,6 @@ export class ArticlesView {
     public forReaderAsCard(dto: ArticleDto): Partial<ArticleDto> {
         return {
             ...dto,
-            comments: undefined,
-            relatedArticles: undefined,
         };
     }
 }

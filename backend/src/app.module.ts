@@ -1,17 +1,42 @@
 import { Module } from '@nestjs/common';
+import {Connection} from 'typeorm';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ArticlesModule } from './articles/articles.module';
-import { AuthorsModule } from './authors/authors.module';
-import { ReadersModule } from './readers/readers.module';
 import { UsersModule } from './users/users.module';
 import { CommentsModule } from './comments/comments.module';
 import { LikesModule } from './likes/likes.module';
 import { AuthModule } from './auth/auth.module';
+import { RegistrationModule } from './registration/registration.module';
+
+import {Article} from './articles/infrastructure/entities/article.entity';
+import {Comment} from './comments/infrastructure/entities/comment.entity';
+import {User} from './users/infrastructure/entities/user.entity';
 
 @Module({
-  imports: [ArticlesModule, AuthModule, AuthorsModule, ReadersModule, UsersModule, CommentsModule, LikesModule, AuthModule],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'sqlite',
+      database: './novaque.sqlite',
+      entities: [
+        Article,
+        Comment,
+        User,
+      ],
+      synchronize: true,
+    }),
+    ArticlesModule,
+    AuthModule,
+    UsersModule,
+    CommentsModule,
+    LikesModule,
+    AuthModule,
+    RegistrationModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private connection: Connection) {}
+}
