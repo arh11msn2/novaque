@@ -2,7 +2,9 @@
     <div>
         <h1> {{ article.title }} </h1>
         <router-link :to="{ name: 'home-page' }">Main page</router-link>
-        <p class="toFrame"> <b> {{ article.author.firstName + ' ' + article.author.lastName }} </b> </p>
+        <p class="toFrame"> <b>
+          {{ article.author.firstName + ' ' + article.author.lastName }}
+        </b> </p>
         <p class="toFrame"> {{ article.content }} </p>
         <p class="CommsLikesFrame"> <b> Likes: </b> {{ article.likesCount }} </p>
         <p class="CommsLikesFrame"><b> Comment section</b> </p>

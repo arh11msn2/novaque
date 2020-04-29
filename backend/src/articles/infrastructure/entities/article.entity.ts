@@ -14,10 +14,14 @@ export class Article {
   @Column()
   content: string;
 
-  @OneToMany(type => Comment, comment => comment.article)
+  @OneToMany(type => Comment, comment => comment.article, {
+    eager: true
+  })
   comments: Comment[];
 
-  @ManyToOne(type => User, author => author.articles)
+  @ManyToOne(type => User, author => author.articles, {
+    eager: true
+  })
   author: User;
 
   @Column({

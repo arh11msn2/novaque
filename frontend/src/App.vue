@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <novaque-header />
     <h1 class="title">NOVAQUE</h1>
     <router-view/>
     <body>
@@ -8,8 +9,13 @@
 </template>
 
 <script>
+import Header from './components/Header';
+
 export default {
   name: 'App',
+  components: {
+    'novaque-header': Header,
+  },
 };
 </script>
 

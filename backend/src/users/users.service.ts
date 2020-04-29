@@ -11,6 +11,7 @@ export class UsersService {
     ) {}
 
     getById(id: number): Promise<User|null> {
+        console.log(id);
         return this.usersRepository.findOne(id);
     }
 

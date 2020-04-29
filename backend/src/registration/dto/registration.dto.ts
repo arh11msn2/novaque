@@ -1,7 +1,7 @@
 export type RegistrationData = {
     email: string;
     password: string;
-    nickname: string;
+    nickName: string;
     firtsName: string;
     lastName: string;
 };
